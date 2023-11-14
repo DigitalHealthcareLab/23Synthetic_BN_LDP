@@ -1,0 +1,131 @@
+### ------------------------------- Please modify this area
+
+path_config :
+  project_path : your_path
+  input_path : your_path
+  output_path : your_path
+
+random_seed : 42
+epsilon : [0.1, 1, 10, 100, 1000]
+
+bayesian_config : 
+  degree_of_network : 1
+  number_of_tuples : 100
+  threshold_value : 20
+  mean_observation_days : 1280
+  sd_observation_days : 912
+
+file_name : 
+  lung_ex_plmn : LUNG_EX_PLMN.xlsx
+  lung_oprt_nfrm : LUNG_OPRT_NFRM.xlsx
+  lung_pt_bsnf : LUNG_PT_BSNF.xlsx
+  lung_pth_bpsy : LUNG_PTH_BPSY.xlsx
+  lung_pth_mlcr : LUNG_PTH_MLCR.xlsx
+  lung_pth_mnty : LUNG_PTH_MNTY.xlsx
+  lung_pth_srgc : LUNG_PTH_SRGC.xlsx
+  lung_trtm_casb : LUNG_TRTM_CASB.xlsx
+  lung_trtm_rd : LUNG_TRTM_RD.xlsx
+  lung_dead_nfrm : LUNG_DEAD_NFRM.xlsx
+
+
+### -------------------------------- Pre-defined Data type description
+
+data_config : 
+  required : 
+    LUNG_DEAD_NFRM:
+      PT_SBST_NO: object
+      DEAD_YMD: datetime64[ns]
+    LUNG_EX_PLMN:
+      PT_SBST_NO : object
+      PLEX_YMD : datetime64[ns]
+      PLEX_KIND_CD : object
+      PLEX_NM : object
+      PLEX_RSLT_VL : float32
+    LUNG_OPRT_NFRM:
+      PT_SBST_NO: object
+      OPRT_YMD: datetime64[ns]
+      OPRT_LUCN_OPRT_KIND_CD: object
+    LUNG_PTH_BPSY:
+      PT_SBST_NO: object
+      BPTH_ACPT_YMD: datetime64[ns]
+      BPTH_SITE_CONT: object
+      BPTH_BPSY_MTHD_DETL_CONT: object
+    LUNG_PTH_MLCR:
+      PT_SBST_NO: object
+      MLPT_ACPT_YMD: datetime64[ns]
+      MLPT_KIND_NM: object
+      MLPT_RSLT_CONT: object
+    LUNG_PTH_MNTY:
+      PT_SBST_NO: object
+      IMPT_ACPT_YMD: datetime64[ns]
+      IMPT_KIND_NM: object
+      IMPT_RSLT_CONT: object
+    LUNG_PTH_SRGC:
+      PT_SBST_NO: object
+      SGPT_ACPT_YMD: datetime64[ns]
+      SGPT_LUNGM_SIZE_VL: float32
+      SGPT_CELL_TYPE_CONT: object
+      SGPT_CELL_DIFF_CONT : object
+      SGPT_VPI_CONT : object
+      SGPT_PPI_CONT : object
+      SGPT_CWI_CONT : object
+      SGPT_MAIN_BRNC_CONT : object
+      SGPT_VASC_INVA_CONT : object
+      SGPT_LYMP_INVA_CONT : object
+      SGPT_LPPM_RSPN_CONT : object
+      SGPT_NERV_PREX_CONT : object
+      SGPT_BREX_BMOE_CONT : object
+      SGPT_SFMG_VL : float32
+      SGPT_MTST_LN_CNT : float32
+      SGPT_PATL_T_STAG_VL : object
+      SGPT_PATL_N_STAG_VL : object
+      SGPT_PATL_M_STAG_VL : object
+    LUNG_PT_BSNF:
+      PT_SBST_NO: object
+      BSPT_SEX_CD: object
+      BSPT_BRYM : datetime64[ns]
+      BSPT_FRST_DIAG_YMD: datetime64[ns]
+      BSPT_FRST_DIAG_CD: object
+      BSPT_STAG_VL: object
+      BSPT_T_STAG_VL: object
+      BSPT_N_STAG_VL: object
+      BSPT_M_STAG_VL: object
+    LUNG_TRTM_CASB:
+      PT_SBST_NO: object
+      CSTR_STRT_YMD: datetime64[ns]
+      CSTR_CLSF_NM: object
+      CSTR_PRPS_CD: object
+      CSTR_CYCL_VL: float32
+    LUNG_TRTM_RD:
+      PT_SBST_NO: object
+      RDT_STRT_YMD: datetime64[ns]
+      RDT_END_YMD: datetime64[ns]
+  
+  prefix : 
+    LUNG_PT_BSNF : PT_BSNF_
+    LUNG_EX_PLMN : EX_PLMN_
+    LUNG_OPRT_NFRM : OPRT_NFRM_
+    LUNG_PTH_BPSY : PTH_BPSY_
+    LUNG_PTH_MLCR : PTH_MLCR_
+    LUNG_PTH_SRGC : PTH_SRGC_
+    LUNG_TRTM_CASB : TRTM_CASB_
+    LUNG_TRTM_RD : TRTM_RD_
+    LUNG_PTH_MNTY : PTH_MNTY_
+    LUNG_DEAD_NFRM : DEAD_NFRM_
+
+
+  static_variable :
+    - BSPT_FRST_DIAG_CD
+    - BSPT_IDGN_AGE
+    - BSPT_M_STAG_VL
+    - BSPT_N_STAG_VL
+    - BSPT_T_STAG_VL
+    - BSPT_STAG_VL
+    - BSPT_SEX_CD
+  
+
+institution_specific_columns :
+  - CENTER_CD
+  - IRB_APRV_NO
+  - CRTN_DT
+
